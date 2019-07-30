@@ -124,8 +124,8 @@ def solc_wrapper(solc_binary=None,
     if bin_runtime:
         command.append('--bin-runtime')
 
-    if clone_bin:
-        command.append('--clone-bin')
+	#if clone_bin:
+	#    command.append('--clone-bin')
 
     if abi:
         command.append('--abi')

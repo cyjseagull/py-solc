@@ -32,6 +32,8 @@ V0_4_22 = 'v0.4.22'
 V0_4_23 = 'v0.4.23'
 V0_4_24 = 'v0.4.24'
 V0_4_25 = 'v0.4.25'
+V0_4_26 = 'v0.4.26'
+V0_5_10 = 'v0.5.10'
 
 
 LINUX = 'linux'
@@ -145,11 +147,12 @@ def get_base_install_path(identifier):
             'solc-{0}'.format(identifier),
         )
     else:
-        return os.path.expanduser(os.path.join(
-            '~',
-            '.py-solc',
-            'solc-{0}'.format(identifier),
-        ))
+	    return os.path.expanduser(os.path.join('.'))
+		#return os.path.expanduser(os.path.join(
+		#    '~',
+		#    '.py-solc',
+		#    'solc-{0}'.format(identifier),
+		#))
 
 
 def get_repository_path(identifier):
@@ -414,6 +417,8 @@ install_v0_4_22_linux = functools.partial(install_solc_from_static_linux, V0_4_2
 install_v0_4_23_linux = functools.partial(install_solc_from_static_linux, V0_4_23)
 install_v0_4_24_linux = functools.partial(install_solc_from_static_linux, V0_4_24)
 install_v0_4_25_linux = functools.partial(install_solc_from_static_linux, V0_4_25)
+install_v0_4_26_linux = functools.partial(install_solc_from_static_linux, V0_4_26)
+install_v0_5_10_linux = functools.partial(install_solc_from_static_linux, V0_5_10)
 
 
 def install_from_source(identifier):
@@ -442,6 +447,8 @@ install_v0_4_22_osx = functools.partial(install_from_source, V0_4_22)
 install_v0_4_23_osx = functools.partial(install_from_source, V0_4_23)
 install_v0_4_24_osx = functools.partial(install_from_source, V0_4_24)
 install_v0_4_25_osx = functools.partial(install_from_source, V0_4_25)
+install_v0_4_26_osx = functools.partial(install_from_source, V0_4_26)
+install_v0_5_10_osx = functools.partial(install_from_source, V0_5_10)
 
 
 INSTALL_FUNCTIONS = {
@@ -467,6 +474,8 @@ INSTALL_FUNCTIONS = {
         V0_4_23: install_v0_4_23_linux,
         V0_4_24: install_v0_4_24_linux,
         V0_4_25: install_v0_4_25_linux,
+        V0_4_26: install_v0_4_26_linux,
+        V0_5_10: install_v0_5_10_linux,
     },
     OSX: {
         V0_4_8: install_v0_4_8_osx,
@@ -485,6 +494,8 @@ INSTALL_FUNCTIONS = {
         V0_4_23: install_v0_4_23_osx,
         V0_4_24: install_v0_4_24_osx,
         V0_4_25: install_v0_4_25_osx,
+        V0_4_26: install_v0_4_26_osx,
+        V0_5_10: install_v0_5_10_osx,
     }
 }
 
