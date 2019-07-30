@@ -303,8 +303,12 @@ def install_solc_dependencies(identifier):
         raise OSError("Git repository not found @ {0}".format(repository_path))
 
     with chdir(repository_path):
-        install_deps_script_path = os.path.join(repository_path, 'scripts', 'install_deps.sh')
-
+        # download install_deps.sh
+        check_subprocess_call(command=["curl", "-LO",
+                                       "https://raw.githubusercontent.com/ethereum/solidity/develop/scripts/install_deps.sh",
+                                       "-o", "install_deps.sh"], message="download the latest install_deps.sh")
+        # get the path
+        install_deps_script_path = os.path.join(repository_path, 'install_deps.sh')
         return check_subprocess_call(
             command=["sh", install_deps_script_path],
             message="Running dependency installation script `install_deps.sh` @ {0}".format(
