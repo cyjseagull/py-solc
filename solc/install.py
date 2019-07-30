@@ -147,13 +147,11 @@ def get_base_install_path(identifier):
             'solc-{0}'.format(identifier),
         )
     else:
-	    return os.getcwd()
-	    #return os.path.expanduser(os.path.join('.'))
-		#return os.path.expanduser(os.path.join(
-		#    '~',
-		#    '.py-solc',
-		#    'solc-{0}'.format(identifier),
-		#))
+        return os.path.expanduser(os.path.join(
+            os.getcwd(),
+            '.py-solc',
+            'solc-{0}'.format(identifier),
+        ))
 
 
 def get_repository_path(identifier):
